@@ -49,7 +49,7 @@ function(aws_set_common_properties target)
         list(APPEND AWS_C_FLAGS "${_FLAGS}")
 
     else()
-        list(APPEND AWS_C_FLAGS -Wall -Werror -Wstrict-prototypes)
+        list(APPEND AWS_C_FLAGS -Wall -Wstrict-prototypes)
 
         if(NOT SET_PROPERTIES_NO_WEXTRA)
             list(APPEND AWS_C_FLAGS -Wextra)
@@ -90,7 +90,7 @@ function(aws_set_common_properties target)
             # some platforms implement htonl family of functions via GNU statement expressions (https://gcc.gnu.org/onlinedocs/gcc/Statement-Exprs.html)
             # which generates -Wgnu-statement-expression warning.
             set(old_flags "${CMAKE_REQUIRED_FLAGS}")
-            set(CMAKE_REQUIRED_FLAGS "-Wgnu -Werror")
+            set(CMAKE_REQUIRED_FLAGS "-Wgnu")
             check_c_source_compiles("
             #include <netinet/in.h>
 
